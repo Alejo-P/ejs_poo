@@ -1,8 +1,9 @@
 import java.sql.*;
 
 public class Conexion {
-    String host, usuario, password;
-
+    // Atributos
+    String host, usuario, password, mensaje;
+    // Constructores
     public Conexion(String host, String usuario, String password) {
         this.host = host;
         this.usuario = usuario;
@@ -11,15 +12,32 @@ public class Conexion {
 
     public Conexion() {}
 
+    // Metodos
+
     public void conexion_local(String host, String usuario, String password){
-        try (Connection conn= DriverManager.getConnection(host, usuario, password)){
+        try (Connection conn=DriverManager.getConnection(host, usuario, password)){
             if (conn!=null)
             {
-                System.out.println("Acceso correcto!");
+                mensaje="Acceso correcto";
             }
         }
         catch (Exception a){
-            System.out.println("No se pudo conectar a la base de datos");
+            mensaje="No se pudo conectar a la base de datos";
+            a.printStackTrace();
         }
     }
+    public void Insertar_datos(int id,String nombre, String cedula, float calif1, float calif2){
+        try (Connection conn=DriverManager.getConnection(this.host, this.usuario, this.password)){
+            String query="INSERT INTO calificaciones (id, nombre, cedula, calif1, calif2) VALUES (?,?,?,?,?)";
+        }
+        catch (Exception b){
+
+        }
+    }
+
+    public String Alerta()
+    {
+        return this.mensaje;
+    }
+
 }
