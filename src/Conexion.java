@@ -49,10 +49,10 @@ public class Conexion {
                 int filas_afectadas=cursor.executeUpdate();
                 if (filas_afectadas>0)
                 {
-                    System.out.println("Insercion exitosa!");
+                    this.mensaje="Insercion exitosa!";
                 }
                 else {
-                    System.out.println("Insercion fallida!");
+                    this.mensaje="Insercion fallida!";
                 }
             }
             catch (Exception c){

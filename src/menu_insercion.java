@@ -30,10 +30,13 @@ public class menu_insercion {
         btninsertar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String cedula, nombre;
-                int id;
-                float calif1, calif2;
-                BDD.Insertar_datos(4, "Marco Cordero", "1726351243", 8.5f, 9.4f);
+                int ID=Integer.parseInt(entry_id.getText());
+                String Nombre=entry_usr.getText();
+                String Cedula=entry_pass.getText();
+                float Calif1=Float.parseFloat(entry_calf1.getText());
+                float Calif2=Float.parseFloat(entry_calf2.getText());
+                BDD.Insertar_datos(ID, Nombre, Cedula, Calif1, Calif2);
+                Texto1.setText(BDD.Alerta());
             }
         });
     }
