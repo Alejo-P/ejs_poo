@@ -19,10 +19,10 @@ public class menu_insercion {
     private JButton btninsertar;
 
     public menu_insercion() {
+        Conexion BDD = new Conexion();
         btnConexion.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Conexion BDD = new Conexion();
                 BDD.conexion_local("jdbc:mysql://localhost:3306/poo_bdd","root","");
                 Texto1.setText(BDD.Alerta());
             }
@@ -31,6 +31,9 @@ public class menu_insercion {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String cedula, nombre;
+                int id;
+                float calif1, calif2;
+                BDD.Insertar_datos(4, "Marco Cordero", "1726351243", 8.5f, 9.4f);
             }
         });
     }
